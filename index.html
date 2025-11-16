@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CAFFE RUMAH TINGKAT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #0a0f1c;
+      color: #f5f5f5;
+    }
+    .cart {
+      transition: all 0.4s ease;
+      right: -400px;
+    }
+    .cart.open {
+      right: 0;
+    }
+  </style>
+</head>
+<body class="font-sans relative">
+
+  <!-- Navbar -->
+  <header class="bg-[#111827]/90 sticky top-0 z-50 backdrop-blur-md border-b border-gray-700">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-blue-400">☕ CAFFE RUMAH TINGKAT</h1>
+      <nav class="space-x-6 text-gray-300">
+        <a href="#coffee" class="hover:text-blue-400">Coffee</a>
+        <a href="#noncoffee" class="hover:text-blue-400">Non-Coffee</a>
+        <a href="#snack" class="hover:text-blue-400">Snack</a>
+      </nav>
+      <button id="cartBtn" class="relative bg-blue-500 px-3 py-2 rounded-md text-white font-semibold hover:bg-blue-600">
+        🛒 Keranjang
+        <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-[url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center h-[60vh] flex items-center justify-center">
+    <div class="bg-black/60 p-8 rounded-xl text-center text-white">
+      <h2 class="text-4xl font-bold mb-3">CAFFE RUMAH TINGKAT</h2>
+      <p class="text-lg text-gray-200">Nikmati makanmu dengan menu terbaik dari kami :)</p>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <main class="max-w-6xl mx-auto px-4 py-12 space-y-20">
+
+    <!-- Coffee -->
+    <section id="coffee">
+      <h3 class="text-3xl font-bold text-blue-400 mb-8 text-center">Coffee</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-[#1f2937] p-6 rounded-xl hover:bg-[#243045] transition">
+          <h4 class="text-xl font-semibold mb-1">Espresso</h4>
+          <p class="text-gray-400 mb-2 text-sm">Kopi hitam pekat dan kuat.</p>
+          <p class="text-blue-400 font-bold mb-3">Rp18.000</p>
+          <button onclick="addToCart('Espresso', 18000)" class="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-semibold">Tambah</button>
+        </div>
+        <div class="bg-[#1f2937] p-6 rounded-xl hover:bg-[#243045] transition">
+          <h4 class="text-xl font-semibold mb-1">Cappuccino</h4>
+          <p class="text-gray-400 mb-2 text-sm">Espresso, susu, dan busa lembut.</p>
+          <p class="text-blue-400 font-bold mb-3">Rp23.000</p>
+          <button onclick="addToCart('Cappuccino', 23000)" class="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-semibold">Tambah</button>
+        </div>
+        <div class="bg-[#1f2937] p-6 rounded-xl hover:bg-[#243045] transition">
+          <h4 class="text-xl font-semibold mb-1">Americano</h4>
+          <p class="text-gray-400 mb-2 text-sm">Espresso dengan air panas.</p>
+          <p class="text-blue-400 font-bold mb-3">Rp20.000</p>
+          <button onclick="addToCart('Americano', 20000)" class="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-semibold">Tambah</button>
+        </div>
+        <div class="bg-[#1f2937] p-6 rounded-xl hover:bg-[#243045] transition">
+          <h4 class="text-xl font-semibold mb-1">Kopi Susu</h4>
+          <p class="text-gray-400 mb-2 text-sm">Kopi dengan susu yang creamy.</p>
+          <p class="text-blue-400 font-bold mb-3">Rp18.000</p>
+          <button onclick="addToCart('Kopi Susu', 18000)" class="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-semibold">Tambah</button>
+        </div>
+        <div class="bg-[#1f2937] p-6 rounded-xl hover:bg-[#243045] transition">
+          <h4 class="text-xl font-semibold mb-1">Kopi Susu Gula Aren</h4>
+          <p class="text-gray-400 mb-2 text-sm">Kopi dengan susu dan gula aren yang creamy.</p>
+          <p class="text-blue-400 font-bold mb-3">Rp22.000</p>
+          <button onclick="addToCart('Kopi Susu gula aren', 22000)" class="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-semibold">Tambah</button>
+        </div>
+        <div class="bg-[#1f2937] p-6 rounded-xl hover:bg-[#243045] transition">
+          <h4 class="text-xl font-semibold mb-1">Cafe Latte</h4>
+          <p class="text-gray-400 mb-2 text-sm">Kopi dengan latte yang creamy.</p>
+          <p class="text-blue-400 font-bold mb-3">Rp26.000</p>
+          <button onclick="addToCart('Cafe Latte', 26000)" class="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-semibold">Tambah</button>
+        </div>
+        <div   class="bg-[#1f2937] p-6 rounded-xl hover:bg-[#243045] transition">
+          <h4 class="text-xl font-semibold mb-1">Cafe Caramel</h4>
+          <p class="text-gray-400 mb-2 text-sm">Kopi dengan caramel yang creamy.</p>
+          <p class="text-blue-400 font-bold mb-3">Rp28.000</p>
+          <button onclick="addToCart('Cafe Caramel', 28000)" class="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-semibold">Tambah</button>
+        </div>
+        <div class="bg-[#1f2937] p-6 rounded-xl hover:bg-[#243045] transition">
+          <h4 class="text-xl font-semibold mb-1">Mocha Latte</h4>
+          <p class="text-gray-400 mb-2 text-sm">Kopi Mocha dengan latte yang creamy.</p>
+          <p class="text-blue-400 font-bold mb-3">Rp28.000</p>
+          <button onclick="addToCart('Mocha Latte', 28000)" class="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-semibold">Tambah</button>
+        </div>
+    </section>
+
+    <!-- Non Coffee -->
+    <section id="noncoffee">
+      <h3 class="text-3xl font-bold text-blue-400 mb-8 text-center">Non-Coffee</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-[#1f2937] p-6 rounded-xl hover:bg-[#243045] transition">
+          <h4 class="text-xl font-semibold mb-1">Matcha Latte</h4>
+          <p class="text-gray-400 mb-2 text-sm">Matcha Jepang dengan susu segar.</p>
+          <p class="text-blue-400 font-bold mb-3">Rp28.000</p>
+          <button onclick="addToCart('Matcha Latte', 28000)" class="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-semibold">Tambah</button>
+        </div>
+        <div class="bg-[#1f2937] p-6 rounded-xl hover:bg-[#243045] transition">
+          <h4 class="text-xl font-semibold mb-1">Hot Chocolate</h4>
+          <p class="text-gray-400 mb-2 text-sm">Cokelat panas manis lembut.</p>
+          <p class="text-blue-400 font-bold mb-3">Rp26.000</p>
+          <button onclick="addToCart('Hot Chocolate', 26000)" class="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-semibold">Tambah</button>
+        </div>
+      <div class="bg-[#1f2937] p-6 rounded-xl hover:bg-[#243045] transition">
+          <h4 class="text-xl font-semibold mb-1">Ice Lemon Tea</h4>
+          <p class="text-gray-400 mb-2 text-sm">Teh yang manis ditambah lemon yang asam.</p>
+          <p class="text-blue-400 font-bold mb-3">Rp18.000</p>
+          <button onclick="addToCart('Ice Lemon Tea', 18000)" class="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-semibold">Tambah</button>
+      </div>
+        <div class="bg-[#1f2937] p-6 rounded-xl hover:bg-[#243045] transition">
+          <h4 class="text-xl font-semibold mb-1">Ice Tea</h4>
+          <p class="text-gray-400 mb-2 text-sm">Teh dengan gula asli.</p>
+          <p class="text-blue-400 font-bold mb-3">Rp12.000</p>
+          <button onclick="addToCart('Ice Tea', 12000)" class="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-semibold">Tambah</button>
+        </div>
+        <div class="bg-[#1f2937] p-6 rounded-xl hover:bg-[#243045] transition">
+          <h4 class="text-xl font-semibold mb-1">Jus Alpukat</h4>
+          <p class="text-gray-400 mb-2 text-sm">Jus alpukat yang segar.</p>
+          <p class="text-blue-400 font-bold mb-3">Rp13.000</p>
+          <button onclick="addToCart('Jus Alpukat', 13000)" class="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-semibold">Tambah</button>
+        </div>
+     </section>
+
+    <!-- Snack -->
+    <section id="snack">
+      <h3 class="text-3xl font-bold text-blue-400 mb-8 text-center">Snack</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-[#1f2937] p-6 rounded-xl hover:bg-[#243045] transition">
+          <h4 class="text-xl font-semibold mb-1">French Fries</h4>
+          <p class="text-gray-400 mb-2 text-sm">Kentang goreng renyah.</p>
+          <p class="text-blue-400 font-bold mb-3">Rp20.000</p>
+          <button onclick="addToCart('French Fries', 20000)" class="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-semibold">Tambah</button>
+        </div>
+        <div class="bg-[#1f2937] p-6 rounded-xl hover:bg-[#243045] transition">
+          <h4 class="text-xl font-semibold mb-1">Croissant</h4>
+          <p class="text-gray-400 mb-2 text-sm">Pastry lembut khas Prancis.</p>
+          <p class="text-blue-400 font-bold mb-3">Rp15.000</p>
+          <button onclick="addToCart('Croissant', 15000)" class="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-semibold">Tambah</button>
+        </div>
+  
+      <div class="bg-[#1f2937] p-6 rounded-xl hover:bg-[#243045] transition">
+          <h4 class="text-xl font-semibold mb-1">Cireng Chili Oil</h4>
+          <p class="text-gray-400 mb-2 text-sm">Cireng lembut disiram chili oil.</p>
+          <p class="text-blue-400 font-bold mb-3">Rp17.000</p>
+          <button onclick="addToCart('Cireng Chili Oil', 17000)" class="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-semibold">Tambah</button>
+        </div>
+        <div class="bg-[#1f2937] p-6 rounded-xl hover:bg-[#243045] transition">
+          <h4 class="text-xl font-semibold mb-1">Cheese Cake</h4>
+          <p class="text-gray-400 mb-2 text-sm">Kue lembut dengan keju.</p>
+          <p class="text-blue-400 font-bold mb-3">Rp24.000</p>
+          <button onclick="addToCart('Cheese Cake', 24000)" class="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-semibold">Tambah</button>
+        </div>
+        <div class="bg-[#1f2937] p-6 rounded-xl hover:bg-[#243045] transition">
+          <h4 class="text-xl font-semibold mb-1">Mix Platter</h4>
+          <p class="text-gray-400 mb-2 text-sm">Macam-macam makanan ringan.</p>
+          <p class="text-blue-400 font-bold mb-3">Rp25.000</p>
+          <button onclick="addToCart('Mix Platter', 25000)" class="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-semibold">Tambah</button>
+          </div>
+    </section>
+
+  </main>
+
+  <!-- Cart Sidebar -->
+  <aside id="cartSidebar" class="cart fixed top-0 w-80 h-full bg-[#1e293b] border-l border-gray-700 p-6 z-50">
+    <h3 class="text-2xl font-bold text-blue-400 mb-4">Keranjang Belanja</h3>
+    <ul id="cartItems" class="space-y-3 mb-6"></ul>
+    <p class="text-lg font-semibold mb-4">Total: <span id="cartTotal" class="text-blue-400">Rp0</span></p>
+    <button onclick="checkout()" class="bg-green-500 hover:bg-green-600 w-full py-2 rounded-md font-semibold text-white">Pesan Sekarang</button>
+    <button id="closeCart" class="mt-3 w-full py-2 rounded-md bg-gray-600 hover:bg-gray-700 text-white">Tutup</button>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="bg-[#0f172a] text-gray-400 py-6 text-center border-t border-gray-700">
+    <p class="mb-2 font-semibold text-gray-300">📍 Ds. Dompyong Wetan</p>
+    <p>📞 0858-8810-7794 | 🌙 Instagram: @cafferumahtingkat</p>
+    <p class="mt-3 text-sm opacity-70">© 2025 CAFFE RUMAH TINGKAT. Semua hak dilindungi.</p>
+  </footer>
+
+  <script>
+    let cart = [];
+    const cartBtn = document.getElementById('cartBtn');
+    const cartSidebar = document.getElementById('cartSidebar');
+    const cartCount = document.getElementById('cartCount');
+    const cartItems = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+    const closeCart = document.getElementById('closeCart');
+
+    cartBtn.addEventListener('click', () => {
+      cartSidebar.classList.toggle('open');
+    });
+
+    closeCart.addEventListener('click', () => {
+      cartSidebar.classList.remove('open');
+    });
+
+    function addToCart(name, price) {
+      const item = cart.find(i => i.name === name);
+      if (item) {
+        item.qty++;
+      } else {
+        cart.push({ name, price, qty: 1 });
+      }
+      updateCart();
+    }
+
+    function updateCart() {
+      cartItems.innerHTML = '';
+      let total = 0;
+      cart.forEach((item, index) => {
+        total += item.price * item.qty;
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <div class="flex justify-between items-center bg-gray-800 p-2 rounded-md">
+            <div>
+              <p class="font-semibold">${item.name}</p>
+              <p class="text-sm text-gray-400">Rp${item.price.toLocaleString()} x ${item.qty}</p>
+            </div>
+            <div class="flex gap-2">
+              <button onclick="changeQty(${index}, -1)" class="px-2 bg-gray-600 rounded-md">-</button>
+              <button onclick="changeQty(${index}, 1)" class="px-2 bg-gray-600 rounded-md">+</button>
+            </div>
+          </div>
+        `;
+        cartItems.appendChild(li);
+      });
+      cartTotal.textContent = 'Rp' + total.toLocaleString();
+      cartCount.textContent = cart.length;
+    }
+
+    function changeQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) cart.splice(index, 1);
+      updateCart();
+    }
+
+    function checkout() {
+      if (cart.length === 0) return alert('Keranjang masih kosong!');
+      let pesan = "Halo CAFFE RUMAH TINGKAT! Saya ingin memesan:\n\n";
+      let total = 0;
+      cart.forEach(item => {
+        pesan += `- ${item.name} (${item.qty}x) = Rp${(item.price * item.qty).toLocaleString()}\n`;
+        total += item.price * item.qty;
+      });
+      pesan += `\nTotal: Rp${total.toLocaleString()}\nTerima kasih!`;
+      const url = `https://wa.me/6285888107794?text=${encodeURIComponent(pesan)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+
+</body>
+</html>
+
+
+
